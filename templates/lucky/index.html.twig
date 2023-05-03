@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LuckyController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<h1>Hello
+			{{ controller_name }}! ✅</h1>
+
+		<p>El producto de a*b =
+			{{a}}
+			*
+			{{b}}
+			=
+			{{resultado}}
+		</p>
+
+		<p>Max:
+			{{maximo}}</p>
+
+		<p>Número aleatorio:
+			{{numero}}</p>
+
+
+		{% for i in numero .. maximo %}
+			{{'i: ' ~ i}}
+			-
+			{{ 'loop.index: ' ~ loop.index }}
+			-
+			{{ 'loop.index0: ' ~ loop.index0 }}
+			-
+			{{ 'loop.revindex: ' ~ loop.revindex }}
+			-
+			{{ 'loop.revindex0: ' ~ loop.revindex0 }}
+
+			<br/>
+		{% endfor %}
+
+		This friendly message is coming from:
+		<ul>
+			<li>Your controller at
+				<code>
+					<a href="{{ 'C:/xampp/htdocs/dwcs/ud7/mi_primer_symf_proj/src/Controller/LuckyController.php'|file_link(0) }}">src/Controller/LuckyController.php</a>
+				</code>
+			</li>
+			<li>Your template at
+				<code>
+					<a href="{{ 'C:/xampp/htdocs/dwcs/ud7/mi_primer_symf_proj/templates/lucky/index.html.twig'|file_link(0) }}">templates/lucky/index.html.twig</a>
+				</code>
+			</li>
+		</ul>
+	</div>
+{% endblock %}
