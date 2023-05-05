@@ -21,6 +21,9 @@
 		<h1>Hello
 			{{ controller_name }}! ✅</h1>
 
+			{# https://twig.symfony.com/doc/3.x/tests/defined.html #}
+			{% if a is defined  and b is defined and resultado is defined %}
+ 
 		<p>El producto de a*b =
 			{{a}}
 			*
@@ -29,13 +32,16 @@
 			{{resultado}}
 		</p>
 
+	
+	{% endif %}
+
 		<p>Max:
 			{{maximo}}</p>
 
 		<p>Número aleatorio:
 			{{numero}}</p>
 
-
+{# 
 		{% for i in numero .. maximo %}
 			{{'i: ' ~ i}}
 			-
@@ -48,7 +54,7 @@
 			{{ 'loop.revindex0: ' ~ loop.revindex0 }}
 
 			<br/>
-		{% endfor %}
+		{% endfor %} #}
 
 		This friendly message is coming from:
 		<ul>
