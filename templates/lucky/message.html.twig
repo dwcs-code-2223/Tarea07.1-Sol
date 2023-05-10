@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LuckyController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+	
+	</style>
+
+	<div class="example-wrapper">
+		<h1>Hello
+			{{ controller_name }}! ✅</h1>
+
+			{# https://twig.symfony.com/doc/3.x/tests/defined.html #}
+		
+
+		<p>Mensaje:
+			{{message}}</p>
+
+	
+	</div>
+{% endblock %}

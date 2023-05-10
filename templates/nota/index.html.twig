@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Lista de notas
+{% endblock %}
+
+{% block body %}
+
+
+
+		<div class="example-wrapper">
+			<h1>
+				Lista de notas</h1>
+
+			{% if notas|length>0 %}
+
+				<table class="table">
+					<thead>
+
+						<th>
+							Título
+						</th>
+						<th>
+							Descripción
+						</th>
+
+					</thead>
+					<tbody>
+
+						{% for nota in notas %}
+							<tr>
+
+								<td>
+									{{nota.titulo}}
+
+								</td>
+								<td>
+									{{nota.descripcion}}
+
+								</td>
+
+
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			{% else %}
+				<div class="alert alert-primary d-flex align-items-center" role="alert">
+
+					<div>
+						No se han encontrado notas
+					</div>
+				</div>
+
+			{% endif %}
+		</div>
+	{% endblock %}
