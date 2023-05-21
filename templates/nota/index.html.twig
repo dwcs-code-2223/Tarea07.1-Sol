@@ -7,51 +7,67 @@
 {% block body %}
 
 
-
-		<div class="example-wrapper">
-			<h1>
-				Lista de notas</h1>
-
-			{% if notas|length>0 %}
-
-				<table class="table">
-					<thead>
-
-						<th>
-							Título
-						</th>
-						<th>
-							Descripción
-						</th>
-
-					</thead>
-					<tbody>
-
-						{% for nota in notas %}
-							<tr>
-
-								<td>
-									{{nota.titulo}}
-
-								</td>
-								<td>
-									{{nota.descripcion}}
-
-								</td>
+	<div class="example-wrapper">
+		<h1>
+			Lista de notas</h1>
 
 
-							</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			{% else %}
-				<div class="alert alert-primary d-flex align-items-center" role="alert">
+		{% include 'common/_mensajes.html.twig' %}
+		{% include 'common/_dialog.html.twig' %}
+		{% if notas|length>0 %}
 
-					<div>
-						No se han encontrado notas
-					</div>
+			<table class="table">
+				<thead>
+
+					<th>
+						Título
+					</th>
+					<th>
+						Descripción
+					</th>
+					<th>
+						Acciones
+					</th>
+
+				</thead>
+				<tbody id="tbody_notas">
+
+					{% for nota in notas %}
+						<tr>
+
+							<td>
+								{{nota.titulo}}
+
+							</td>
+							<td>
+								{{nota.descripcion}}
+
+							</td>
+
+							<td>
+								<a class="btn btn-primary" href="{{path('app_nota_edit', {'id': nota.id})}}" role="button">Editar</a>
+								<a id="deleteNotaBtn_{{nota.id}}" data-bs-notaId="{{nota.id}}" class="btn btn-danger" href="{{path('app_nota_delete', {'id': nota.id})}}" role="button">Eliminar</a>
+							</td>
+
+
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% else %}
+			<div class="alert alert-primary d-flex align-items-center" role="alert">
+
+				<div>
+					No se han encontrado notas
 				</div>
+			</div>
 
-			{% endif %}
-		</div>
-	{% endblock %}
+		{% endif %}
+	</div>
+{% endblock %}
+
+{% block javascript
+
+ %}
+<script src="js/nota/delete.js"></script>
+{% endblock %}

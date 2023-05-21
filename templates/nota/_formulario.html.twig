@@ -1,0 +1,22 @@
+<form method="POST" action="{{ action }}">
+
+
+<div class="mb-3">
+		<label for="titulo" class="form-label" placeholder="Descripción" >Título</label>
+		<input type="text" class="form-control" id="titulo" name="titulo" value="{{nota.titulo}}">
+
+	</div>
+	<div class="mb-3">
+		<label for="description" class="form-label" placeholder="Descripción" >Descripción</label>
+		<input type="text" class="form-control" id="description" name="descripcion" value="{{nota.descripcion}}">
+
+	</div>
+
+	{# The default filter returns the passed default value if the value is undefined or empty, otherwise the value of the variable:
+			  https://twig.symfony.com/doc/3.x/filters/default.html
+			  #}
+	<button type="submit" class="btn btn-primary">{{etiqueta_btn_enviar|default('Guardar')}}</button>
+    <a class="btn btn-danger" href="{{path('app_nota_list')}}" role="button">Cancelar</a>
+</form>
+
+

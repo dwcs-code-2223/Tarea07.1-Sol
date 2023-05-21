@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar nota
+{% endblock %}
+
+{% block body %}
+	<h1>Editar nota</h1>
+
+	{% include 'common/_mensajes.html.twig' %}
+
+	
+	{% include 'nota/_formulario.html.twig' with {'action': path('app_nota_edit', {'id': nota.id}), 'etiqueta_btn_enviar':'Actualizar' } %} 
+{% endblock %}
