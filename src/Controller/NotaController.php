@@ -102,11 +102,13 @@ class NotaController extends AbstractController
                 $this->addFlash('warning', 'El campo descripción es obligatorio');
                 $valid = false;
             }
+          
             if (isset($titulo) && (empty($titulo))) {
 
                 $this->addFlash('warning', 'El campo título es obligatorio');
                 $valid = false;
             } 
+          
 
             if ($valid) {
 
